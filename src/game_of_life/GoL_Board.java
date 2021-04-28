@@ -1,14 +1,12 @@
-package taskB;
-
-import java.util.Iterator;
+package game_of_life;
 
 /**
  * 
- * @author 
+ * @author Omer Zano
  * This class implements a Game of life board
  * 
  */
-public class GoL_Board extends CA
+public class GoL_Board
 {
 	/**
 	 * @param rows: Number of rows
@@ -30,60 +28,41 @@ public class GoL_Board extends CA
 		rule = new GoL_Rule();
 		
 	}
-	
-	/**
-	 * 
-	 * @param board: The board to be set.
-	 * Set parameter board as current board
-	 */
+
 	public void SetBoard(int[][] board)
 	{
 		if (board.length != this.board.length)
 			return;
-		// TODO Auto-generated method stub
+		
 		for (int i = 0; i < board.length; i++) {
 			for (int j = 0; j < board[i].length; j++) {
 				this.board[i][j] = board[i][j];
 			}
 		}
 	}
-
-	/**
-	 * @return current CA state as a String 
-	 */
+	
 	public String CurrentBoardOutput()
 	{
 		// TODO Auto-generated method stub
 		return null;
 	}
 	
-	// TODO add methods and fields as needed.
 	// method to iterate over the board and apply rules to each cell
 	public GoL_Board nextIteration() {
 		// generate next board off of this one
 		GoL_Board next = new GoL_Board(this.getRows(), this.getCols());
+		
+		// copy current state
 		next.SetBoard(this.board);
 		
 		for (int i = 0; i < this.board.length; i++) {
 			for (int j = 0; j < this.board[i].length; j++) {
-				// apply rules
+				// apply rules for each cell
 				rule.ImplementRule(i, j, this, next);
 			}
 		}
 		return next;
 		
-	}
-
-	@Override
-	public Iterator iterator() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	
-	public void initBoard(String boardString) {
-		for (int i = 0; i < boardString.length(); i++) {
-			
-		}
 	}
 	
 	public int getRows() { return rows; }

@@ -1,4 +1,4 @@
-package taskB;
+package game_of_life;
 
 /**
  * 

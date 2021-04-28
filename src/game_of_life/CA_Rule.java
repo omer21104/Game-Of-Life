@@ -1,9 +1,9 @@
-package taskB;
+package game_of_life;
 
 /**
  * 
- * @author 
- * Interface for
+ * @author Omer Zano
+ * Interface for a rule for the game
  */
 public interface CA_Rule
 {

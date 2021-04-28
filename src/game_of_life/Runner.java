@@ -1,12 +1,13 @@
-package taskB;
+package game_of_life;
 
 public class Runner {
 	private static Reader reader = null;
-	private final static String foldPath = "C:\\Users\\ASUS\\Dropbox\\Java\\Game Of Life\\src\\taskB";
+	private final static String foldPath = System.getProperty("user.dir");
 	private static String fileName = "\\GliderGunSmall.txt";
-
+	private static int TICKRATE = 1000; // rate of update
+	
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+
 		reader = new Reader(foldPath+fileName);
 		int rows, cols;
 		rows = reader.getRows();
@@ -19,12 +20,10 @@ public class Runner {
 			current.show();
 			GoL_Board next = current.nextIteration();
 			System.out.println();
-			//next.show();
 			current = next;
 			try {
-				Thread.sleep(1000);
+				Thread.sleep(TICKRATE);
 			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
